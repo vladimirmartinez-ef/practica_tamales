@@ -1,100 +1,64 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+@extends('layouts.app')
 
-        <title>Laravel</title>
-
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;600&display=swap" rel="stylesheet">
-
-        <!-- Styles -->
-        <style>
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Nunito', sans-serif;
-                font-weight: 200;
-                height: 100vh;
-                margin: 0;
-            }
-
-            .full-height {
-                height: 100vh;
-            }
-
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
-
-            .position-ref {
-                position: relative;
-            }
-
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
-
-            .content {
-                text-align: center;
-            }
-
-            .title {
-                font-size: 84px;
-            }
-
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 13px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
-
-            .m-b-md {
-                margin-bottom: 30px;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
-
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}">Register</a>
-                        @endif
-                    @endauth
+@section('content')
+    <div class="container-fluid bg-secondary">
+        <div class="row">
+            <div class="col-6">
+                <div class="row mx-auto mt-5 text-center">
+                    <div class="col">
+                        <h2 style="text-shadow: rgb(96, 129, 5) 1px 0 10px">Bienvenid@s a Tamales el Ingeniero</h2>
+                    <img src="{{asset('img/new.jpeg')}}" class="img-fluid" alt="logo image">
+                    </div>
                 </div>
-            @endif
-
-            <div class="content">
-                <div class="title m-b-md">
-                    Laravel
+                <div class="row mt-5">
+                    <div class="col">
+                        <h3 class="text-white" style="text-shadow: 2px 2px 3px rgb(129, 5, 53)">Misión</h3>
+                        <p class="font-weight-bold">Ser unos de las tiendas en linea que ponga en alto <br>
+                        a El Salvador, ofreciendo a nuestros clientes variedad en tamales <br>
+                        y con muy buena calidad, satisfaciendo e innovando para ofrecer <br>
+                    a nuestros clientes el mejor de los servicios.</p>
+                    </div>
+                    <div class="col">
+                        <h3 class="text-white" style="text-shadow: 2px 2px 3px rgb(129, 5, 53)">Visión</h3>
+                        <p class="font-weight-bold">Deseamos el exito de cada uno de nuestros clientes y <br>
+                        que estos siempre obtenga de nuestro sitio la mejor opcion <br>
+                    en comida tradicional como lo son los tamales, crecer y tener muchas mas <br>
+                sucursales dentro del pais, como fuera de el.</p>
+                    </div>
                 </div>
 
-                <div class="links">
-                    <a href="https://laravel.com/docs">Docs</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://blog.laravel.com">Blog</a>
-                    <a href="https://nova.laravel.com">Nova</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://vapor.laravel.com">Vapor</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
+            </div>
+            <div class="col-6">
+                <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                    <ol class="carousel-indicators">
+                        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                    </ol>
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="https://images.rappi.com/products/990006611-1489592088.png?d=128x90"
+                                class="d-block w-100 img-fluid" alt="..." style="height: 600px">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="https://www.tipicosmargoth.com/wp-content/uploads/2020/05/COMBO-TAMALERO-ELOTE-TIPICOS-MARGOTH.jpg"
+                                class="d-block w-100 img-fluid" alt="..." style="height: 600px">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="https://cropafresh.com/image/cache/catalog/Chuchito%20colorado/tamal%20navidad%201-500x500.jpg"
+                                class="d-block w-100 img-fluid" alt="..." style="height: 600px">
+                        </div>
+                    </div>
+                    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
                 </div>
             </div>
         </div>
-    </body>
-</html>
+    </div>
+@endsection
