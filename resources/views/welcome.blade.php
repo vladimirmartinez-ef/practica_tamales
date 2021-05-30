@@ -1,12 +1,12 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container-fluid bg-secondary">
+    <div class="container-fluid">
         <div class="row">
             <div class="col-6">
                 <div class="row mx-auto mt-5 text-center">
                     <div class="col">
-                        <h2 style="text-shadow: rgb(96, 129, 5) 1px 0 10px">Bienvenid@s a Tamales el Ingeniero</h2>
+                        <h2 style="text-shadow: rgb(35, 231, 9) 1px 0 10px">Bienvenid@s a Tamales el Ingeniero</h2>
                     <img src="{{asset('img/new.jpeg')}}" class="img-fluid" alt="logo image">
                     </div>
                 </div>

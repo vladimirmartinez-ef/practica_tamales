@@ -29,7 +29,7 @@ class VentaController extends Controller
      */
     public function create()
     {
-        
+
     }
 
     /**
@@ -44,7 +44,7 @@ class VentaController extends Controller
         $venta->user_id = auth()->id();
         $venta->combo_id = Combo::findOrFail($request->combo_id);
         $venta->save();
-        return $nota;
+        return $venta;
     }
 
     /**
@@ -82,7 +82,7 @@ class VentaController extends Controller
         $venta->user_id = auth()->id();
         $venta->combo_id = $request->combo_id;
         $venta->save();
-        return $combo
+        return $venta;
     }
 
     /**
