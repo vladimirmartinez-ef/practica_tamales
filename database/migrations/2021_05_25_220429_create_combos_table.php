@@ -17,7 +17,7 @@ class CreateCombosTable extends Migration
             $table->bigIncrements('id');
             $table->string('nombre', 100);
             $table->string('descripcion');
-            $table->double('precio', 2, 2);
+            $table->double('precio',2);
             $table->timestamps();
         });
     }
