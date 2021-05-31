@@ -3,7 +3,7 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">Ricos tamalitos</div>
+                    <div class="card-header">Que puede elegir:</div>
 
                     <div class="card-body">
                         Ricos tamalitos

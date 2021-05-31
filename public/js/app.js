@@ -37433,7 +37433,7 @@ var staticRenderFns = [
         _c("div", { staticClass: "col-md-8" }, [
           _c("div", { staticClass: "card" }, [
             _c("div", { staticClass: "card-header" }, [
-              _vm._v("Ricos tamalitos")
+              _vm._v("Que puede elegir:")
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "card-body" }, [
