@@ -1845,6 +1845,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+//
 //
 //
 //
@@ -1862,8 +1865,70 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  mounted: function mounted() {
-    console.log('Component mounted.');
+  data: function data() {
+    var _ref;
+
+    return _ref = {
+      ventas: [],
+      venta: {
+        id: 0,
+        user_id: 0,
+        combo_id: 0
+      },
+      usuarios: []
+    }, _defineProperty(_ref, "usuarios", {
+      id: 0,
+      nombre: '',
+      email: '',
+      direccion: ''
+    }), _defineProperty(_ref, "combos", []), _defineProperty(_ref, "combos", {
+      id: 0,
+      nombre: '',
+      descripcion: '',
+      precio: 0.0
+    }), _ref;
+  },
+  created: function created() {
+    var _this = this;
+
+    axios.get('/ventas').then(function (res) {
+      _this.ventas = res.data;
+    });
+    axios.get('/combos').then(function (res) {
+      _this.combos = res.data;
+    });
+  },
+  methods: {
+    getUsuarios: function getUsuarios() {},
+    agregarVenta: function agregarVenta() {
+      var _this2 = this;
+
+      var nuevaVenta = {
+        user_id: this.venta.user_id,
+        combo_id: this.combo_id
+      };
+      this.venta = {
+        id: 0,
+        user_id: 0,
+        combo_id: 0
+      };
+      axios.post('/ventas', nuevaVenta).then(function (res) {
+        var ventaServidor = res.data;
+
+        _this2.ventas.push(ventaServidor);
+      });
+    },
+    eliminarVenta: function eliminarVenta(venta, index) {
+      var _this3 = this;
+
+      var confirma = confirm("Eliminar venta ".concat(venta.id));
+
+      if (confirma) {
+        axios["delete"]("/ventas/".concat(venta.id)).then(function () {
+          _this3.ventas.splice(index, 1);
+        });
+      }
+    }
   }
 });
 
@@ -37437,7 +37502,9 @@ var staticRenderFns = [
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "card-body" }, [
-              _vm._v("\n                    Ricos tamalitos\n                ")
+              _vm._v(
+                "\n                    Ricos tamalitos\n\n                "
+              )
             ])
           ])
         ])
