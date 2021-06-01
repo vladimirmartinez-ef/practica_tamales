@@ -1935,7 +1935,6 @@ __webpack_require__.r(__webpack_exports__);
 
     axios.get("/ventas").then(function (res) {
       _this.ventas = res.data;
-      console.log(res.data);
     });
     axios.get('/combos').then(function (res) {
       _this.combos = res.data;
@@ -1943,6 +1942,8 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     agregarVenta: function agregarVenta(id) {
+      var _this2 = this;
+
       var nuevaVenta = {
         combo_id: id
       };
@@ -1953,16 +1954,16 @@ __webpack_require__.r(__webpack_exports__);
       };
       var this2 = this;
       axios.post("/ventas", nuevaVenta).then(function (res) {
-        this2.getVentas();
+        _this2.ventas = res.data;
       });
     }
   },
   getVentas: function getVentas() {
-    var _this2 = this;
+    var _this3 = this;
 
     this.ventas = [];
     axios.get("/ventas").then(function (res) {
-      _this2.ventas = res.data;
+      _this3.ventas = res.data;
     });
   }
 });
@@ -37537,7 +37538,7 @@ var render = function() {
                   _vm._l(_vm.combos, function(combo, index) {
                     return _c("tr", { key: index }, [
                       _c("th", { attrs: { scope: "row" } }, [
-                        _vm._v(_vm._s(combo.id))
+                        _vm._v(_vm._s(combo.id_combo))
                       ]),
                       _vm._v(" "),
                       _c("td", [_vm._v(_vm._s(combo.nombre))]),
@@ -37553,7 +37554,7 @@ var render = function() {
                           attrs: { value: "Comprar" },
                           on: {
                             click: function($event) {
-                              return _vm.agregarVenta(combo.id)
+                              return _vm.agregarVenta(combo.id_combo)
                             }
                           }
                         })

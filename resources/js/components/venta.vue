@@ -19,12 +19,12 @@
                 </thead>
                 <tbody>
                     <tr v-for="(combo , index) in combos" :key="index"> 
-                        <th scope="row">{{combo.id}}</th>
+                        <th scope="row">{{combo.id_combo}}</th>
                         <td>{{combo.nombre}}</td>
                         <td>{{combo.descripcion}}</td>
                         <td>{{combo.precio}}</td>
                         
-                        <td><input class="btn btn-success" @click="agregarVenta(combo.id)"  value="Comprar" style="width: 100px;"></td>
+                        <td><input class="btn btn-success" @click="agregarVenta(combo.id_combo)"  value="Comprar" style="width: 100px;"></td>
                     </tr>
                 </tbody>
             </table>
@@ -66,7 +66,8 @@ export default {
       venta:{
           id:0,
           user_id:0,
-          combo_id:0
+          combo_id:0,
+
       },
       // usuarios:[],
       // usuarios:{
@@ -88,7 +89,7 @@ export default {
   created() {
     axios.get("/ventas").then((res) => {
       this.ventas = res.data;
-      console.log(res.data)
+      
     });
     axios.get('/combos').then(res => {
       this.combos = res.data;
@@ -104,7 +105,8 @@ export default {
       this.venta = { id: 0, user_id: 0, combo_id: 0 };
       let this2=this
       axios.post("/ventas", nuevaVenta).then((res) => {
-        this2.getVentas()
+        
+        this.ventas=res.data
       });
       
     }

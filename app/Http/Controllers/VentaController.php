@@ -45,7 +45,7 @@ class VentaController extends Controller
         $venta->user_id = auth()->id();
         $venta->combo_id = $request->combo_id;
         $venta->save();
-        return Redirect::back();
+        return Venta::join('combos','ventas.combo_id','=','combos.id_combo')->where('user_id',auth()->id())->get();
     }
 
     /**
