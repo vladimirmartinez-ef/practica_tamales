@@ -55,7 +55,7 @@ class VentaController extends Controller
      */
     public function show($id)
     {
-        //
+        return Venta::findOrFail($id);
     }
 
     /**
