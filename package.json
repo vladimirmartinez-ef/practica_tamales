@@ -1,5 +1,7 @@
 {
     "private": true,
+    "name": "vue-3",
+    "description": null,
     "scripts": {
         "dev": "npm run development",
         "development": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --config=node_modules/laravel-mix/setup/webpack.config.js",
@@ -10,17 +12,21 @@
         "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --config=node_modules/laravel-mix/setup/webpack.config.js"
     },
     "devDependencies": {
+        "@vue/compiler-sfc": "^3.0.11",
         "axios": "^0.21.1",
         "bootstrap": "^4.0.0",
         "cross-env": "^7.0",
+        "css-loader": "^5.2.6",
+        "file-loader": "^6.2.0",
         "jquery": "^3.2",
-        "laravel-mix": "^5.0.9",
+        "laravel-mix": "^6.0.19",
         "lodash": "^4.17.19",
+        "mini-css-extract-plugin": "^1.6.0",
         "popper.js": "^1.12",
-        "resolve-url-loader": "^2.3.2",
+        "resolve-url-loader": "^4.0.0",
         "sass": "^1.20.1",
         "sass-loader": "^8.0.0",
-        "vue": "^2.5.17",
+        "vue": "^3.0.11",
         "vue-loader": "^16.2.0",
         "vue-template-compiler": "^2.6.10"
     },
