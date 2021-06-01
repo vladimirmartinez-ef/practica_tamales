@@ -45,5 +45,38 @@ class ComboSeeders extends Seeder
         $combo->descripcion = "6 ticucos con crema y un cafe";
         $combo->precio = 3.99;
         $combo->save();
+
+
+        $combo = new Combo();
+        $combo->nombre = "Mega Pollo";
+        $combo->descripcion = "Consiste en 4 tamales grandes de pechuga de pollo, 6 panes, salsa picante y vaso de cafe";
+        $combo->precio = 5.99;
+        $combo->save();
+
+        $combo = new Combo();
+        $combo->nombre = "Dulce tamal";
+        $combo->descripcion = "Consiste en 3 tamalitos de elote, con crema y vaso de cafe";
+        $combo->precio = 2.60;
+        $combo->save();
+
+        $combo = new Combo();
+        $combo->nombre = "Pollo en tamales";
+        $combo->descripcion = "Consiste en 3 tamales de pollo, 4 panes, salsa picante y vaso de chocolate";
+        $combo->precio = 3.99;
+        $combo->save();
+
+
+        $combo = new Combo();
+        $combo->nombre = "Mega Pisque";
+        $combo->descripcion = "Consiste en 6 tamales pisque, salsa picante y vaso de chocolate";
+        $combo->precio = 5.99;
+        $combo->save();
+
+
+        $combo = new Combo();
+        $combo->nombre = "Titulo dulce";
+        $combo->descripcion = "Consiste en 6 tamalitos de elote con crema y vaso de chocolate";
+        $combo->precio = 6.50;
+        $combo->save();
     }
 }
