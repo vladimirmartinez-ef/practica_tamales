@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Venta;
 use App\Combo;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Redirect;
 class VentaController extends Controller
 {
     /**
@@ -16,7 +16,8 @@ class VentaController extends Controller
     public function index(Request $request)
     {
         if ($request->ajax()) {
-            return Venta::where('user_id',auth()->id)->get();
+            
+            return Venta::join('combos','ventas.combo_id','=','combos.id_combo')->where('user_id',auth()->id())->get();
         }else{
             return view('home');
         }
@@ -42,9 +43,9 @@ class VentaController extends Controller
     {
         $venta =  new Venta();
         $venta->user_id = auth()->id();
-        $venta->combo_id = Combo::findOrFail($request->combo_id);
+        $venta->combo_id = $request->combo_id;
         $venta->save();
-        return $venta;
+        return Redirect::back();
     }
 
     /**

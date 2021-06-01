@@ -1845,8 +1845,49 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -1866,69 +1907,63 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
-    var _ref;
-
-    return _ref = {
+    return {
       ventas: [],
       venta: {
         id: 0,
         user_id: 0,
         combo_id: 0
       },
-      usuarios: []
-    }, _defineProperty(_ref, "usuarios", {
-      id: 0,
-      nombre: '',
-      email: '',
-      direccion: ''
-    }), _defineProperty(_ref, "combos", []), _defineProperty(_ref, "combos", {
-      id: 0,
-      nombre: '',
-      descripcion: '',
-      precio: 0.0
-    }), _ref;
+      // usuarios:[],
+      // usuarios:{
+      //     id:0,
+      //     nombre:'',
+      //     email:'',
+      //     direccion:'',
+      // },
+      combos: [],
+      item: {
+        id: 0,
+        nombre: '',
+        descripcion: '',
+        precio: 0.0
+      }
+    };
   },
   created: function created() {
     var _this = this;
 
-    axios.get('/ventas').then(function (res) {
+    axios.get("/ventas").then(function (res) {
       _this.ventas = res.data;
+      console.log(res.data);
     });
     axios.get('/combos').then(function (res) {
       _this.combos = res.data;
     });
   },
   methods: {
-    getUsuarios: function getUsuarios() {},
-    agregarVenta: function agregarVenta() {
-      var _this2 = this;
-
+    agregarVenta: function agregarVenta(id) {
       var nuevaVenta = {
-        user_id: this.venta.user_id,
-        combo_id: this.combo_id
+        combo_id: id
       };
       this.venta = {
         id: 0,
         user_id: 0,
         combo_id: 0
       };
-      axios.post('/ventas', nuevaVenta).then(function (res) {
-        var ventaServidor = res.data;
-
-        _this2.ventas.push(ventaServidor);
+      var this2 = this;
+      axios.post("/ventas", nuevaVenta).then(function (res) {
+        this2.getVentas();
       });
-    },
-    eliminarVenta: function eliminarVenta(venta, index) {
-      var _this3 = this;
-
-      var confirma = confirm("Eliminar venta ".concat(venta.id));
-
-      if (confirma) {
-        axios["delete"]("/ventas/".concat(venta.id)).then(function () {
-          _this3.ventas.splice(index, 1);
-        });
-      }
     }
+  },
+  getVentas: function getVentas() {
+    var _this2 = this;
+
+    this.ventas = [];
+    axios.get("/ventas").then(function (res) {
+      _this2.ventas = res.data;
+    });
   }
 });
 
@@ -37486,28 +37521,113 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", { staticClass: "container" }, [
+    _c("div", { staticClass: "row justify-content-center" }, [
+      _c("div", { staticClass: "col-md-8" }, [
+        _c("div", { staticClass: "card" }, [
+          _c("div", { staticClass: "card-header" }, [_vm._v("Elija su combo")]),
+          _vm._v(" "),
+          _c("div", { staticClass: "card-body" }, [
+            _c("form", { attrs: { action: "" } }, [
+              _c("table", { staticClass: "table", attrs: { id: "tabla" } }, [
+                _vm._m(0),
+                _vm._v(" "),
+                _c(
+                  "tbody",
+                  _vm._l(_vm.combos, function(combo, index) {
+                    return _c("tr", { key: index }, [
+                      _c("th", { attrs: { scope: "row" } }, [
+                        _vm._v(_vm._s(combo.id))
+                      ]),
+                      _vm._v(" "),
+                      _c("td", [_vm._v(_vm._s(combo.nombre))]),
+                      _vm._v(" "),
+                      _c("td", [_vm._v(_vm._s(combo.descripcion))]),
+                      _vm._v(" "),
+                      _c("td", [_vm._v(_vm._s(combo.precio))]),
+                      _vm._v(" "),
+                      _c("td", [
+                        _c("input", {
+                          staticClass: "btn btn-success",
+                          staticStyle: { width: "100px" },
+                          attrs: { value: "Comprar" },
+                          on: {
+                            click: function($event) {
+                              return _vm.agregarVenta(combo.id)
+                            }
+                          }
+                        })
+                      ])
+                    ])
+                  }),
+                  0
+                )
+              ])
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "card" }, [
+          _c("div", { staticClass: "card-header" }, [
+            _vm._v("Compras realizadas")
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "card-body" }, [
+            _c("table", { staticClass: "table" }, [
+              _vm._m(1),
+              _vm._v(" "),
+              _c(
+                "tbody",
+                _vm._l(_vm.ventas, function(venta, index) {
+                  return _c("tr", { key: index }, [
+                    _c("th", { attrs: { scope: "row" } }, [
+                      _vm._v(_vm._s(venta.id))
+                    ]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v(_vm._s(venta.nombre))]),
+                    _vm._v(" "),
+                    _c("td", [_vm._v(_vm._s(venta.precio))])
+                  ])
+                }),
+                0
+              )
+            ])
+          ])
+        ])
+      ])
+    ])
+  ])
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "container" }, [
-      _c("div", { staticClass: "row justify-content-center" }, [
-        _c("div", { staticClass: "col-md-8" }, [
-          _c("div", { staticClass: "card" }, [
-            _c("div", { staticClass: "card-header" }, [
-              _vm._v("Que puede elegir:")
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "card-body" }, [
-              _vm._v(
-                "\n                    Ricos tamalitos\n\n                "
-              )
-            ])
-          ])
-        ])
+    return _c("thead", [
+      _c("tr", [
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("#")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Nombre")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Descripcion")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Precio")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Accion")])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("thead", [
+      _c("tr", [
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("#")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Combo")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Precio")])
       ])
     ])
   }

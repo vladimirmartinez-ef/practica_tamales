@@ -14,7 +14,7 @@ class ComboController extends Controller
      */
     public function index(Request $request)
     {
-            return Combo::all();   
+        return Combo::all();   
     }
 
     /**

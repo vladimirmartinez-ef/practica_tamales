@@ -14,7 +14,7 @@ class CreateCombosTable extends Migration
     public function up()
     {
         Schema::create('combos', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->bigIncrements('id_combo');
             $table->string('nombre', 100);
             $table->string('descripcion');
             $table->double('precio',2);
