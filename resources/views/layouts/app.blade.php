@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('Tamales el Ingeniero', 'Tamales el Ingeniero') }}</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -39,6 +39,9 @@
                     </ul>
 
                     <!-- Right Side Of Navbar -->
+                    <a class="navbar-brand font-weight-bold" href="{{ url('/home') }}">
+                        Combos
+                    </a>
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
                         @guest
