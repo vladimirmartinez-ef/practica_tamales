@@ -7,7 +7,7 @@
                 <div class="row mx-auto mt-5 text-center">
                     <div class="col">
                         <h2 style="text-shadow: rgb(35, 231, 9) 1px 0 10px">Bienvenid@s a Tamales el Ingeniero</h2>
-                    <img src="{{asset('img/new.jpeg')}}" class="img-fluid" alt="logo image">
+                    <img src="{{asset('img/tamales.jpg')}}" width="270px" class="img-fluid" alt="logo image">
                     </div>
                 </div>
                 <div class="row mt-5">
